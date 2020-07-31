@@ -39,6 +39,10 @@ parameters:
     label: TX Antenna
     dtype: string
     hide: part
+-   id: subdev_tx
+    label: TX Subdev Spec
+    dtype: string
+    hide: part
 -   id: gain_tx
     label: TX Gain
     dtype: float
@@ -82,6 +86,10 @@ parameters:
     label: RX Antenna
     dtype: string
     hide: part
+-   id: subdev_rx
+    label: RX Subdev Spec
+    dtype: string
+    hide: part
 -   id: gain_rx
     label: RX Gain
     dtype: float
@@ -121,8 +129,8 @@ templates:
     imports: import radar
     make: radar.usrp_echotimer_cc(${samp_rate}, ${center_freq}, ${num_delay_samps},
         ${args_tx}, ${wire_tx}, ${clock_source_tx}, ${time_source_tx}, ${antenna_tx},
-        ${gain_tx}, ${timeout_tx}, ${wait_tx}, ${lo_offset_tx}, ${args_rx}, ${wire_rx},
-        ${clock_source_rx}, ${time_source_rx}, ${antenna_rx}, ${gain_rx}, ${timeout_rx},
+        ${subdev_tx}, ${gain_tx}, ${timeout_tx}, ${wait_tx}, ${lo_offset_tx}, ${args_rx}, ${wire_rx},
+        ${clock_source_rx}, ${time_source_rx}, ${antenna_rx}, ${subdev_rx}, ${gain_rx}, ${timeout_rx},
         ${wait_rx}, ${lo_offset_rx}, ${len_key})
     callbacks:
     - set_num_delay_samps(${num_delay_samps})
